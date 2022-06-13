@@ -20,7 +20,7 @@ public class WebTable {
 		driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("admin123");
 		driver.findElement(By.xpath("//input[@name='Submit']")).click();
 	
-		//Admin-->User mangement --> Users
+		
 	Actions act = new Actions(driver);
 		
 		WebElement PIM =driver.findElement(By.xpath("//a[@id='menu_pim_viewPimModule']"));
