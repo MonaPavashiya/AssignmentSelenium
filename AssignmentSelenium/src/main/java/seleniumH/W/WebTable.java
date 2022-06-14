@@ -23,10 +23,10 @@ public class WebTable {
 		
 	Actions act = new Actions(driver);
 		
-		WebElement PIM =driver.findElement(By.xpath("//a[@id='menu_pim_viewPimModule']"));
+		WebElement pim =driver.findElement(By.xpath("//a[@id='menu_pim_viewPimModule']"));
 		WebElement employeeList =driver.findElement(By.xpath("//a[@id='menu_pim_viewEmployeeList']"));
 		
-		act.moveToElement(PIM).build().perform(); 
+		act.moveToElement(pim).build().perform(); 
 		act.moveToElement(employeeList).click().build().perform(); 
 		
 		Thread.sleep(500);	
