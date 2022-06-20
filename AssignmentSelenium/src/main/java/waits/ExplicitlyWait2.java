@@ -17,21 +17,28 @@ public class ExplicitlyWait2 {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("https://www.facebook.com/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.findElement(By.linkText("Create new account")).click();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		WebElement newAcc = driver.findElement(By.linkText("Create new account"));
 
 		WebElement fname = driver.findElement(By.xpath("//input[@name='firstname']"));
 		WebElement lname = driver.findElement(By.xpath("//input[@name='lastname']"));
 		
+		clickOn(driver, newAcc, 10);
 		sendKeys(driver, fname, 10, "abcd");
 		sendKeys(driver, lname, 10, "mnop");
 		
-		driver.quit();
+		
+		//driver.quit();
 	}
 
-	private static void sendKeys(WebDriver driver, WebElement element, int timeout, String value) {
+	public static void sendKeys(WebDriver driver, WebElement element, int timeout, String value) {
 		new WebDriverWait(driver, Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOf(element));
 		element.sendKeys(value);
 	}
 
+	public static void clickOn(WebDriver driver, WebElement element, int timeout) {
+		new WebDriverWait(driver, Duration.ofSeconds(timeout)).until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+	}
 }
